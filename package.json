@@ -1,0 +1,22 @@
+{
+  "name": "hegic-eth",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ hegic-eth",
+    "create-local": "graph create --node http://localhost:8020/ hegic-eth",
+    "remove-local": "graph remove --node http://localhost:8020/ hegic-eth",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 hegic-eth"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.26.0",
+    "@graphprotocol/graph-ts": "0.24.1",
+    "ethereum-input-data-decoder": "^0.4.0",
+    "uint256": "^1.0.8",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.19"
+  }
+}

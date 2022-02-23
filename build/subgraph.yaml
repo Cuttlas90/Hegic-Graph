@@ -1,0 +1,33 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: hegicEhtOption
+    network: mainnet
+    source:
+      address: "0xEfC0eEAdC1132A12c9487d800112693bf49EcfA2"
+      abi: hegicEhtOption
+      startBlock: 13217765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Create
+        - Exercise
+        - Expire
+        - OwnershipTransferred
+      abis:
+        - name: hegicEhtOption
+          file: hegicEhtOption\abis\hegicEhtOption.json
+      eventHandlers:
+        - event: Create(indexed uint256,indexed address,uint256,uint256)
+          handler: handleCreate
+        - event: Exercise(indexed uint256,uint256)
+          handler: handleExercise
+        - event: Expire(indexed uint256,uint256)
+          handler: handleExpire
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: hegicEhtOption\hegicEhtOption.wasm

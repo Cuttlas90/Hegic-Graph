@@ -1,0 +1,30 @@
+type AccountEntity @entity {
+  id: ID!
+  account: String!
+  optionIdList: [OptionEntity!]!
+  totalCall: BigInt!
+  totalPut: BigInt!
+}
+
+type TransactionCreateEntity @entity {
+  id: ID!
+  sender: String!
+  totalFee: BigDecimal!
+  timestamp: BigInt!
+  accountEntity: AccountEntity!
+  optionEntity: OptionEntity!
+}
+
+type OptionEntity @entity {
+  id: ID!
+  owner: String!
+  amount: String!
+  optionType: String!
+  methodId: String!
+  createTimestamp: BigInt!
+  period: String!
+  strike: String!
+  settlementFee: BigDecimal!
+  premium: BigInt!
+  profit: BigInt!
+}
